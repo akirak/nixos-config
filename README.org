@@ -1,0 +1,59 @@
+* NixOS Configuration
+* Overview
+
+- =/etc/nixos=: This repository
+- =/home/nix/.config=: Symlinked to =/etc/nixos/home=
+- =/home/nix/nixos=: (Optional) Symlinked to =/etc/nixos= to allow easily editing system configuration files
+
+* Usage
+** Installing NixOS
+First create file systems for =/=, =/boot= (which is a UEFI boot partition), =/home=, and swap and then mount them under =/mnt=.
+
+Create a directory at =/mnt/etc= and clone this repository to =/mnt/etc/nixos= as a normal user with uid 1000.
+Don't forget to check out the Git submodules.
+
+Prepare configuration files
+
+#+BEGIN_SRC shell
+make config
+#+END_SRC
+
+Edit =hardware-configuration.nix= to suit your environment[fn:1] and run
+
+#+BEGIN_SRC shell
+make install
+#+END_SRC
+
+After booting into the installed system and logging in as the root user, set the password of =nix= user:
+
+#+BEGIN_SRC shell
+passwd nix
+#+END_SRC
+
+** Rebuild the configuration of NixOS
+As the normal procedure of NixOS, edit configuration files in this repository and run:
+#+BEGIN_SRC shell
+nixos-rebuild switch
+#+END_SRC
+
+** Configuring the user environment
+
+=home-manager= should take care of the configuration files under the home directory of =nix= user. To use the system, you first have to generate
+your configuration files using the tool.
+
+First log in as =nix= user. Ensure that the following check points are satisfied:
+
+- =~/.config= is a symbolic link to =/etc/nixos/home=.
+- The Git submodule at =/etc/nixos/home-manager= is checked out.
+- =~/.config/nixpkgs/home.nix= contains your configuration.
+
+Run the following command to install =home-manager= in the submodule:
+
+#+BEGIN_SRC shell
+nix-shell /etc/nixos/home-manager -A install
+#+END_SRC
+
+In a subsequent use, you can use =home-manager switch= to regenerate the configuration. For details, see the documentation of home-manager.
+
+* Footnotes
+[fn:1] If you use [[https://nixos.wiki/wiki/Full_Disk_Encryption][full-disk encryption]], you will have to configure =boot.initrd.luks.devices=.

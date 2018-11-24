@@ -1,0 +1,3 @@
+[submodule "home-manager"]
+	path = home-manager
+	url = https://github.com/akirak/home-manager.git
