@@ -5,6 +5,7 @@
   [
     ../config/base.nix
     ../config/x11.nix
+    ../config/syncthing.nix
     # ../config/network-manager.nix
     # ../config/sshd.nix
     # ../config/sound.nix
