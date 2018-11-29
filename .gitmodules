@@ -1,3 +1,6 @@
 [submodule "home-manager"]
 	path = home-manager
 	url = https://github.com/akirak/home-manager.git
+[submodule "home/herbstluftwm"]
+	path = home/herbstluftwm
+	url = https://github.com/akirak/herbstluftwm-config.git
