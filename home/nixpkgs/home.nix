@@ -56,3 +56,9 @@
     path = "/etc/nixos/home-manager";
   };
 }
+
+# Use compile to rebuild the home from inside Emacs.
+
+# Local Variables:
+# compile-command: "home-manager switch"
+# End:
