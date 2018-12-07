@@ -9,9 +9,14 @@
     enable = true;
     userName = "Akira Komamura";
     userEmail = "akira.komamura@gmail.com";
-#    extraConfig = {
-#      "github.user" = "akirak"; 
-#    };
+    aliases = {
+      co = "checkout";
+    };
+    extraConfig = {
+      github = {
+        user = "akirak";
+      };
+    };
   };
 
   programs.firefox = {
