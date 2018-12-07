@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
 {
+  home.packages = [
+    pkgs.ripgrep
+  ];
+
   programs.emacs = {
     enable = true;
   };
