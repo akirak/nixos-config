@@ -3,6 +3,9 @@
 {
   home.packages = [
     pkgs.ripgrep
+    # Needed by my herbstluftwm config
+    pkgs.rofi
+    pkgs.gxmessage
   ];
 
   programs.emacs = {
@@ -32,6 +35,20 @@
     enable = true;
     defaultCacheTtl = 1800;
     enableSshSupport = true;
+  };
+
+  # Configure ~/.xinitrc.
+  xsession = {
+    enable = true;
+    windowManager.command =
+      "${pkgs.herbstluftwm}/bin/herbstluftwm --locked";
+    scriptPath = ".xinitrc";
+  };
+
+  # Also configure the setkbmap service.
+  home.keyboard = {
+    layout = "us";
+    options = [ "ctrl:nocaps" ];
   };
 
   programs.home-manager = {
