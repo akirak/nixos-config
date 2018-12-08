@@ -1,11 +1,11 @@
 { pkgs, ... }:
 
 {
-  home.packages = [
-    pkgs.ripgrep
+  home.packages = with pkgs; [
+    ripgrep
     # Needed by my herbstluftwm config
-    pkgs.rofi
-    pkgs.gxmessage
+    rofi
+    gxmessage
   ];
 
   programs.emacs = {
