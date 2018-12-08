@@ -51,6 +51,15 @@
     options = [ "ctrl:nocaps" ];
   };
 
+  home.file = {
+    ".emacs".text = ''
+(setq custom-file "~/.custom.el")
+(when (file-exists-p custom-file)
+  (load-file custom-file))
+(load-file (expand-file-name "init.el" user-emacs-directory))
+    '';
+  };
+
   programs.home-manager = {
     enable = true;
     path = "/etc/nixos/home-manager";
