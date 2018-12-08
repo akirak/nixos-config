@@ -15,7 +15,6 @@
   networking.hostName = "victoria"; # Define your hostname.
 
   environment.systemPackages = with pkgs; [
-    vim
     xorg.xinit
   ];
 
