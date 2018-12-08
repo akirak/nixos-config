@@ -1,11 +1,20 @@
-* NixOS Configuration
-* Overview
+#+title: NixOS and Home Manager Configuration
+
+This repository contains configuration files for [[https://nixos.org/][NixOS]] and  [[https://github.com/rycee/home-manager][home-manager]] for my desktop machine(s).
+
+* Overview of the deployment
+** NixOS machines
+This repository should be deployed to NixOS machines as follows:
 
 - =/etc/nixos=: This repository
 - =/home/nix/.config=: Symlinked to =/etc/nixos/home=
-- =/home/nix/nixos=: (Optional) Symlinked to =/etc/nixos= to allow easily editing system configuration files
+- =/home/nix/nixos=: Symlinked to =/etc/nixos= to allow easily editing system configuration files
+** TODO Other Linux distributions
+Parts of the configuration can be installed to other Linux distributions by installing Nix package manager as a normal user:
 
-* Usage
+- =/home/nix/.config=
+
+* Installation and usage
 ** Installing NixOS
 First create file systems for =/=, =/boot= (which is a UEFI boot partition), =/home=, and swap and then mount them under =/mnt=.
 
@@ -53,7 +62,7 @@ Run the following command to install =home-manager= in the submodule:
 nix-shell /etc/nixos/home-manager -A install
 #+END_SRC
 
-In a subsequent use, you can use =home-manager switch= to regenerate the configuration. For details, see the documentation of home-manager.
+In subsequent use, you can use =home-manager switch= to regenerate the configuration. For details, see the documentation of home-manager.
 
 * Footnotes
 [fn:1] If you use [[https://nixos.wiki/wiki/Full_Disk_Encryption][full-disk encryption]], you will have to configure =boot.initrd.luks.devices=.
