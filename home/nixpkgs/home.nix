@@ -56,6 +56,7 @@
 (setq custom-file "~/.custom.el")
 (when (file-exists-p custom-file)
   (load-file custom-file))
+(setq akirak/use-personal-configuration t)
 (load-file (expand-file-name "init.el" user-emacs-directory))
     '';
   };
