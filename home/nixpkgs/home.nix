@@ -59,6 +59,9 @@
 (setq akirak/use-personal-configuration t)
 (load-file (expand-file-name "init.el" user-emacs-directory))
     '';
+
+    # TODO: Create a symbolic link to ~/.nix-profile/share/applications/emacs.desktop
+    # ".local/share/applications/emacs.desktop".source =
   };
 
   programs.home-manager = {
