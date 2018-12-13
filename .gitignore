@@ -6,6 +6,12 @@
 /home/git/config
 /home/htop
 
+# Data files and config files created by running apps
+# Data files of Syncthing
+/home/syncthing
+# Created on Chrome OS
+/home/weston.ini
+
 # Systemd unit files
 # Unit files should be added to this ignore list individually
 # to ensure that there is no unknown file
