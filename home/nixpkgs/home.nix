@@ -37,6 +37,21 @@
     enableSshSupport = true;
   };
 
+  systemd.user.services = {
+    syncthing = {
+      Unit = {
+        Description = "Run Syncthing daemon";
+      };
+      Service = {
+        Type = "simple";
+        ExecStart = "${pkgs.syncthing}/bin/syncthing -no-browser";
+      };
+      Install = {
+        WantedBy = ["hm-graphical-session.service"];
+      };
+    };
+  };
+
   # Configure ~/.xinitrc.
   xsession = {
     enable = true;
