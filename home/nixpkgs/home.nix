@@ -6,6 +6,8 @@
     # Needed by my herbstluftwm config
     rofi
     gxmessage
+    # Needed for my Emacs configuration
+    gcc
   ];
 
   programs.emacs = {
