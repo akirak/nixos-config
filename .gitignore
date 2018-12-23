@@ -11,6 +11,7 @@
 /home/syncthing
 # Created on Chrome OS
 /home/weston.ini
+/home/cros-garcon.conf
 
 # Systemd unit files
 # Unit files should be added to this ignore list individually
