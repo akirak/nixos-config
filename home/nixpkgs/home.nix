@@ -8,6 +8,7 @@
     gxmessage
     # Needed for my Emacs configuration
     gcc
+    mlocate
   ];
 
   programs.emacs = {
