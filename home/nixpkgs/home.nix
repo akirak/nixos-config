@@ -9,6 +9,7 @@
     # Needed for my Emacs configuration
     gcc
     mlocate
+    graphviz
   ];
 
   programs.emacs = {
