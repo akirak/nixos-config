@@ -14,6 +14,10 @@
 
   programs.emacs = {
     enable = true;
+    package = (pkgs.emacs.override {
+      withGTK2 = false;
+      withGTK3 = false;
+    });
   };
 
   programs.git = {
