@@ -1,6 +1,15 @@
 { config, lib, pkgs, ... }:
 
 {
+  environment.systemPackages = with pkgs; [
+    xorg.xinit
+    alacritty
+  ];
+
+  # Run X without a display manager.
+  services.xserver.autorun = false;
+  services.xserver.exportConfiguration = true;
+
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
@@ -20,4 +29,9 @@
     # libinput.enable = true;
 
   };
+
+  fonts.fonts = with pkgs; [
+    overpass
+  ];
+
 }

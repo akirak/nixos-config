@@ -1,7 +1,0 @@
-[Unit]
-Description=Backup contents in ~/org to the Git repository inside it
-
-[Service]
-Type=simple
-WorkingDirectory=%h/org
-ExecStart=/bin/sh -c '%h/org/scripts/local-backup.sh'

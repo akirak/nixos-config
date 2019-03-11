@@ -1,8 +1,0 @@
-[Unit]
-Description=Run backup-org.service periodically
-
-[Timer]
-OnUnitActiveSec=5m
-
-[Install]
-WantedBy=multi-user.target
